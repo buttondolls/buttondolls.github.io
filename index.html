@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ButtonDolls — куклы ручной работы по вашим референсам</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -17,12 +20,16 @@
       --accent: #e8e8e8;
     }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', Arial, sans-serif;
       background: var(--black);
       color: var(--text);
       line-height: 1.6;
     }
-    h1, h2, h3 { font-family: Georgia, serif; font-weight: normal; letter-spacing: .5px; }
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
 
     /* Шапка */
     header {
@@ -34,7 +41,7 @@
       display: flex; justify-content: space-between; align-items: center;
     }
     .logo {
-      font-family: Georgia, serif; font-size: 26px; color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; color: var(--text);
       letter-spacing: 2px; text-transform: uppercase;
     }
     .logo::after { content: "●"; color: var(--accent); margin-left: 8px; font-size: 12px; vertical-align: middle; }
@@ -54,7 +61,7 @@
     }
     .hero-text { flex: 1; min-width: 300px; }
     .hero h1 { font-size: 52px; line-height: 1.1; margin-bottom: 20px; }
-    .hero h1 span { color: var(--gray-3); }
+    .hero h1 span { color: var(--text); }
     .hero p { font-size: 18px; color: var(--muted); margin-bottom: 32px; max-width: 480px; }
     .btn {
       display: inline-block; background: var(--accent); color: var(--black);
@@ -91,13 +98,7 @@
       background: var(--gray-2); display: flex; align-items: center;
       justify-content: center; color: var(--gray-3); font-size: 13px; letter-spacing: 2px;
     }
-    .card h3 { font-size: 20px; margin-bottom: 4px; }
-    .status {
-      color: var(--black); background: var(--accent);
-      display: inline-block; font-size: 11px; padding: 4px 12px;
-      letter-spacing: 1px; text-transform: uppercase; margin: 10px 0;
-    }
-    .status.sold { background: var(--gray-3); color: var(--muted); }
+    .card h3 { font-size: 22px; margin-bottom: 10px; }
     .card p { color: var(--muted); font-size: 14px; }
 
     /* Этапы */
@@ -108,7 +109,7 @@
       position: relative;
     }
     .step .num {
-      font-size: 44px; color: var(--gray-3); font-family: Georgia, serif;
+      font-size: 44px; color: var(--gray-3); font-family: 'Cormorant Garamond', Georgia, serif;
       margin-bottom: 10px;
     }
     .step h3 { font-size: 17px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
@@ -175,19 +176,16 @@
     <div class="card">
       <div class="img">ФОТО</div>
       <h3>Имя куклы</h3>
-      <span class="status">Свободна к заказу</span>
-      <p>Кукла ручной работы по референсу персонажа. Лепка лица, ручная роспись, прошивные волосы.</p>
+      <p>Кукла ручной работы по референсу персонажа. Лепка лица, ручная роспись, волосы из пряжи.</p>
     </div>
     <div class="card">
       <div class="img">ФОТО</div>
       <h3>Имя куклы</h3>
-      <span class="status sold">Продана</span>
       <p>Авторская интерпретация образа. Костюм сшит вручную по выкройкам, детали — ручная работа.</p>
     </div>
     <div class="card">
       <div class="img">ФОТО</div>
       <h3>Имя куклы</h3>
-      <span class="status">Свободна к заказу</span>
       <p>OOAK-кукла: единственный экземпляр, повтор невозможен.</p>
     </div>
   </div>
@@ -200,7 +198,7 @@
     <div class="step"><div class="num">01</div><h3>Идея</h3><p>Вы присылаете референсы — фото персонажа или желаемого образа.</p></div>
     <div class="step"><div class="num">02</div><h3>Лепка</h3><p>Лицо формируется вручную, каждая черта прорабатывается индивидуально.</p></div>
     <div class="step"><div class="num">03</div><h3>Роспись</h3><p>Ручная роспись лица — двух одинаковых кукол не существует.</p></div>
-    <div class="step"><div class="num">04</div><h3>Волосы</h3><p>Прошивка вручную: трессы мохера или канекалона.</p></div>
+    <div class="step"><div class="num">04</div><h3>Волосы</h3><p>Волосы из пряжи, закреплённые вручную.</p></div>
     <div class="step"><div class="num">05</div><h3>Одежда</h3><p>Костюм шьётся по фигуре куклы, ручные швы и детали.</p></div>
   </div>
 </section>
@@ -212,7 +210,7 @@
     Это куклы не для игры: каждая создана как объект коллекционирования —
     с тщательной проработкой лица, волос и костюма. Я работаю по референсам:
     вы присылаете фото персонажа из фильма, игры или желаемый образ —
-    и кукла рождается по нему. Лепка, роспись и прошивка выполняются вручную,
+    и кукла рождается по нему. Лепка, роспись и костюм выполняются вручную,
     поэтому двух одинаковых кукол не существует.
   </p>
 </section>
