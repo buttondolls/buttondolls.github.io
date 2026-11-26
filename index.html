@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ButtonDolls — куклы ручной работы по вашим референсам</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --black: #0a0a0a;
+      --dark: #141414;
+      --gray-1: #1f1f1f;
+      --gray-2: #2b2b2b;
+      --gray-3: #3d3d3d;
+      --text: #f5f5f5;
+      --muted: #9a9a9a;
+      --accent: #e8e8e8;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: Georgia, serif; font-weight: normal; letter-spacing: .5px; }
+
+    /* Шапка */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(10,10,10,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-2);
+      padding: 18px 6%;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo {
+      font-family: Georgia, serif; font-size: 26px; color: var(--text);
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+    .logo::after { content: "●"; color: var(--accent); margin-left: 8px; font-size: 12px; vertical-align: middle; }
+    nav a {
+      color: var(--muted); text-decoration: none; margin-left: 26px;
+      font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* Герой-блок */
+    .hero {
+      padding: 110px 8%;
+      display: flex; align-items: center; gap: 50px; flex-wrap: wrap;
+      border-bottom: 1px solid var(--gray-2);
+      background: radial-gradient(circle at 70% 30%, #1a1a1a 0%, var(--black) 60%);
+    }
+    .hero-text { flex: 1; min-width: 300px; }
+    .hero h1 { font-size: 52px; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 span { color: var(--gray-3); }
+    .hero p { font-size: 18px; color: var(--muted); margin-bottom: 32px; max-width: 480px; }
+    .btn {
+      display: inline-block; background: var(--accent); color: var(--black);
+      padding: 16px 40px; border-radius: 2px; text-decoration: none;
+      font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-size: 13px;
+      transition: all .25s;
+    }
+    .btn:hover { background: #ffffff; box-shadow: 0 0 30px rgba(255,255,255,.25); transform: translateY(-2px); }
+    .hero-photo { flex: 1; min-width: 300px; }
+    .placeholder {
+      width: 100%; aspect-ratio: 3/4; background: var(--gray-1);
+      border: 1px solid var(--gray-3); display: flex; align-items: center;
+      justify-content: center; color: var(--gray-3); font-size: 14px; letter-spacing: 2px;
+    }
+
+    /* Секции */
+    section { padding: 80px 8%; border-bottom: 1px solid var(--gray-2); }
+    .section-title {
+      text-align: center; font-size: 32px; margin-bottom: 16px;
+      text-transform: uppercase; letter-spacing: 3px;
+    }
+    .section-sub { text-align: center; color: var(--muted); font-size: 15px; margin-bottom: 50px; }
+
+    /* Карточки */
+    .grid { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+    .card {
+      background: var(--gray-1); border: 1px solid var(--gray-2);
+      padding: 0 20px 24px; flex: 1; min-width: 260px; max-width: 340px;
+      transition: all .25s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .card .img {
+      width: calc(100% + 40px); margin: 0 -20px 20px; aspect-ratio: 1;
+      background: var(--gray-2); display: flex; align-items: center;
+      justify-content: center; color: var(--gray-3); font-size: 13px; letter-spacing: 2px;
+    }
+    .card h3 { font-size: 20px; margin-bottom: 4px; }
+    .status {
+      color: var(--black); background: var(--accent);
+      display: inline-block; font-size: 11px; padding: 4px 12px;
+      letter-spacing: 1px; text-transform: uppercase; margin: 10px 0;
+    }
+    .status.sold { background: var(--gray-3); color: var(--muted); }
+    .card p { color: var(--muted); font-size: 14px; }
+
+    /* Этапы */
+    .steps { display: flex; gap: 20px; flex-wrap: wrap; }
+    .step {
+      flex: 1; min-width: 180px; background: var(--gray-1);
+      border: 1px solid var(--gray-2); padding: 30px 22px; text-align: left;
+      position: relative;
+    }
+    .step .num {
+      font-size: 44px; color: var(--gray-3); font-family: Georgia, serif;
+      margin-bottom: 10px;
+    }
+    .step h3 { font-size: 17px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .step p { color: var(--muted); font-size: 14px; }
+
+    /* О мастерской */
+    .about-text {
+      max-width: 760px; margin: 0 auto; font-size: 17px; color: #cfcfcf;
+      text-align: center;
+    }
+    .about-text strong { color: var(--text); }
+
+    /* Дисклеймер и подвал */
+    .disclaimer {
+      text-align: center; font-size: 13px; color: var(--gray-3); margin-top: 30px;
+    }
+    footer {
+      background: var(--dark); padding: 40px 8%; text-align: center;
+    }
+    footer a {
+      color: var(--muted); margin: 0 14px; text-decoration: none;
+      font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+      transition: color .2s;
+    }
+    footer a:hover { color: var(--text); }
+    footer .copy { color: var(--gray-3); font-size: 12px; margin-top: 18px; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 36px; }
+      nav a { margin-left: 14px; font-size: 12px; }
+      section { padding: 60px 6%; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ButtonDolls</div>
+  <nav>
+    <a href="#portfolio">Портфолио</a>
+    <a href="#process">Процесс</a>
+    <a href="#order">Как заказать</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-text">
+    <h1>Куклы <span>ручной</span><br>работы</h1>
+    <p>Коллекционные куклы, созданные по вашим референсам — по мотивам
+       любимых персонажей или по собственному образу. Каждая — единственная
+       в своём роде.</p>
+    <a class="btn" href="#order">Заказать куклу</a>
+  </div>
+  <div class="hero-photo">
+    <div class="placeholder">Фото куклы</div>
+  </div>
+</div>
+
+<section id="portfolio">
+  <h2 class="section-title">Избранные работы</h2>
+  <p class="section-sub">Каждая кукла создаётся вручную и существует в единственном экземпляре</p>
+  <div class="grid">
+    <div class="card">
+      <div class="img">ФОТО</div>
+      <h3>Имя куклы</h3>
+      <span class="status">Свободна к заказу</span>
+      <p>Кукла ручной работы по референсу персонажа. Лепка лица, ручная роспись, прошивные волосы.</p>
+    </div>
+    <div class="card">
+      <div class="img">ФОТО</div>
+      <h3>Имя куклы</h3>
+      <span class="status sold">Продана</span>
+      <p>Авторская интерпретация образа. Костюм сшит вручную по выкройкам, детали — ручная работа.</p>
+    </div>
+    <div class="card">
+      <div class="img">ФОТО</div>
+      <h3>Имя куклы</h3>
+      <span class="status">Свободна к заказу</span>
+      <p>OOAK-кукла: единственный экземпляр, повтор невозможен.</p>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <h2 class="section-title">Как рождается кукла</h2>
+  <p class="section-sub">Полный цикл — вручную, без форм и серийного литья</p>
+  <div class="steps">
+    <div class="step"><div class="num">01</div><h3>Идея</h3><p>Вы присылаете референсы — фото персонажа или желаемого образа.</p></div>
+    <div class="step"><div class="num">02</div><h3>Лепка</h3><p>Лицо формируется вручную, каждая черта прорабатывается индивидуально.</p></div>
+    <div class="step"><div class="num">03</div><h3>Роспись</h3><p>Ручная роспись лица — двух одинаковых кукол не существует.</p></div>
+    <div class="step"><div class="num">04</div><h3>Волосы</h3><p>Прошивка вручную: трессы мохера или канекалона.</p></div>
+    <div class="step"><div class="num">05</div><h3>Одежда</h3><p>Костюм шьётся по фигуре куклы, ручные швы и детали.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">О мастерской</h2>
+  <p class="about-text">
+    <strong>ButtonDolls — мастерская коллекционных кукол ручной работы.</strong>
+    Это куклы не для игры: каждая создана как объект коллекционирования —
+    с тщательной проработкой лица, волос и костюма. Я работаю по референсам:
+    вы присылаете фото персонажа из фильма, игры или желаемый образ —
+    и кукла рождается по нему. Лепка, роспись и прошивка выполняются вручную,
+    поэтому двух одинаковых кукол не существует.
+  </p>
+</section>
+
+<section id="order">
+  <h2 class="section-title">Как заказать</h2>
+  <p class="section-sub">Три шага до вашей куклы</p>
+  <div class="steps">
+    <div class="step"><div class="num">01</div><h3>Заявка</h3><p>Пишете мне и присылаете референсы: кого и в каком образе хотите.</p></div>
+    <div class="step"><div class="num">02</div><h3>Обсуждение</h3><p>Согласуем образ, цену и сроки. Предоплата 30% после утверждения эскиза.</p></div>
+    <div class="step"><div class="num">03</div><h3>Создание</h3><p>Срок изготовления 2–4 недели. Показываю процесс по этапам.</p></div>
+  </div>
+  <p class="disclaimer">
+    Все куклы ButtonDolls — авторские работы по мотивам образов и персонажей.
+    Это авторские интерпретации, не связанные с официальными брендами и студиями.
+  </p>
+  <div style="text-align:center; margin-top:40px;">
+    <a class="btn" href="#contacts">Оставить заявку</a>
+  </div>
+</section>
+
+<footer id="contacts">
+  <p>
+    <a href="#">ВКонтакте</a>
+    <a href="#">Telegram</a>
+    <a href="#">Pinterest</a>
+  </p>
+  <p class="copy">ButtonDolls — куклы ручной работы по референсам. Все куклы — авторские работы.</p>
+</footer>
+
+</body>
+</html>
